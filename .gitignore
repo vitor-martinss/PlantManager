@@ -1,0 +1,13 @@
+_src/node_modules/
+_src/.expo/
+_src/npm-debug.*
+*_src/.jks
+*_src/.p8
+*_src/.p12
+*_src/.key
+*_src/.mobileprovision
+*_src/.orig.*
+_src/web-build/
+
+# macOS
+_src/.DS_Store
