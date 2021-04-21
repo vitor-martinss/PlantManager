@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		paddingVertical: 20,
-		backgroundColor: colors.red,
+		paddingVertical: 20,	
 		marginTop: getStatusBarHeight(),
 	},
 
