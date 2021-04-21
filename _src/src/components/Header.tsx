@@ -19,7 +19,7 @@ export function Header() {
 			</View>
 			<Image 
 				style={styles.image}
-				source={{uri: 'https://i.pravatar.cc/300'}}
+				source={{uri: 'https://avatars.githubusercontent.com/u/37670851?v=4'}}
 			/>
 		</View>
 	)
