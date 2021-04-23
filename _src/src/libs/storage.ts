@@ -79,11 +79,10 @@ export async function savePlant(plant: PlantProps) : Promise<void> {
 	}
 }
 
-export async function loadPlant() : Promise<PlantProps[]> {
+export async function loadPlant() : Promise<PlantProps[] | undefined> {
 	try {
 		const data = await AsyncStorage.getItem('@plantmanager:plants')
 		const plants = data ? (JSON.parse(data) as StoragePlantProps) : {}
-
 		const plantsSorted = Object.keys(plants).map(plant => {
 			return {
 				...plants[plant].data,

@@ -23,7 +23,7 @@ const AuthRoutes = () => {
 			}}
 		>
 			<AppTab.Screen
-				name='Nova Planta'
+				name='newPlant'
 				component={PlantSelect}
 				options={{
 					tabBarIcon: (({size, color}) => (
@@ -37,7 +37,7 @@ const AuthRoutes = () => {
 			/>
 
 			<AppTab.Screen
-				name='Minhas Plantas'
+				name='myPlants'
 				component={MyPlants}
 				options={{
 					tabBarIcon: (({size, color}) => (

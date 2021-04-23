@@ -13,6 +13,7 @@ import { formatDistance } from 'date-fns'
 import { pt } from 'date-fns/locale'
 import { PlantCardSecondary } from '../components/PlantCardSecondary'
 import { Load } from '../components/Load'
+import { useNavigation } from '@react-navigation/core'
 
 
 export function MyPlants() {
@@ -20,6 +21,12 @@ export function MyPlants() {
 	const [myPlants, setMyPlants] = useState<PlantProps[]>([])
 	const [loading, setLoading] = useState(true)
 	const [nextWatered, setNextWatered] = useState<string>()
+
+	const navigation = useNavigation()
+
+	function handleGoBack() {
+		navigation.navigate('PlantSelect', {screen: 'newPlant'})
+	}
 
 	function handleRemove(plant: PlantProps) {
 		Alert.alert('Remover', `Deseja remover a ${plant.name}?`, [
@@ -44,10 +51,14 @@ export function MyPlants() {
 			}
 		])
 	}
-	
+
 	useEffect(() => {
 		async function loadStorageData() {
 			const plantsStoraged = await loadPlant()
+
+			if(!plantsStoraged){
+				return
+			}
 
 			const nextTime = formatDistance(
 				new Date(plantsStoraged[0].dateTimeNotification).getTime(),
@@ -64,7 +75,17 @@ export function MyPlants() {
 		}
 
 		loadStorageData()
+
+		// if(myPlants.length === 0) {				
+		// 	Alert.alert('Esta faltando algo', 'Você ainda não adicionou uma planta 😅',
+		// 		[{
+		// 			text: 'Ok', onPress:() => handleGoBack()
+		// 		}]
+		// 	)
+		// }
+
 	},[])
+
 
 	if(loading){
 		return <Load /> 
