@@ -92,10 +92,7 @@ export function UserIdentification() {
 				</View>
 
 				</TouchableWithoutFeedback>
-				
-
 			</KeyboardAvoidingView>
-
 		</SafeAreaView>
 	)
 }

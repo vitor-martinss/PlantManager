@@ -50,7 +50,6 @@ const AppRoutes: React.FC = () => (
 			component={AuthRoutes}
 		/>
 
-
 	</stackRoutes.Navigator>
 )
 

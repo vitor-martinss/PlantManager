@@ -52,8 +52,6 @@ export function PlantSave() {
 				dateTimeNotification: selectedDateTime
 			})
 
-
-
 			navigation.navigate('Confirmation', {
 				title: 'Tudo certo',
 				subtitle: 'Fique tranquilo que sempre vamos lembrar você de cuidar da sua plantinha com muito cuidado',
