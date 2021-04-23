@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
 	},
 
 	spotLight: {
-		flex: 1,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
 	spotLightText: {
 		flex: 1,
 		color: colors.blue,
-		paddingHorizontal: 20,
+		paddingHorizontal: 10,
 	},
 
 	plants: {
