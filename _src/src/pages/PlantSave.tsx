@@ -3,7 +3,7 @@ import {Alert, Image, Platform, StyleSheet, Text, View} from 'react-native'
 import { getBottomSpace } from 'react-native-iphone-x-helper'
 import { SvgFromUri } from 'react-native-svg'
 import waterdrop from '../assets/waterdrop.png'
-import { useRoute } from '@react-navigation/core'
+import { useNavigation, useRoute } from '@react-navigation/core'
 import DateTimerPicker, {Event} from '@react-native-community/datetimepicker'
 
 import { Button } from '../components/Buttons'
@@ -11,7 +11,7 @@ import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 import { isBefore, format } from 'date-fns'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { loadPlant, PlantProps, savePlant } from '../libs/storage'
+import { PlantProps, savePlant } from '../libs/storage'
 
 
 interface Params {
@@ -23,8 +23,9 @@ export function PlantSave() {
 	const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios')
 
 	const route = useRoute()
-	const {plant} = route.params as Params
 
+	const {plant} = route.params as Params
+	const navigation = useNavigation()
 	function handleChangeTime(event: Event, dateTime: Date | undefined) {
 		if(Platform.OS === 'android') {
 			setShowDatePicker(oldState => !oldState)
@@ -49,6 +50,16 @@ export function PlantSave() {
 			await savePlant({
 				...plant,
 				dateTimeNotification: selectedDateTime
+			})
+
+
+
+			navigation.navigate('Confirmation', {
+				title: 'Tudo  certo',
+				subtitle: 'Fique ttraanquiilo que sempre vamos lembrar você de cuidar da sua plantinha com muito cuidado',
+				buttonTitle: 'Muito Obrigado',
+				icon: 'hug',
+				nextScreen: 'MyPlants'
 			})
 
 		} catch {
