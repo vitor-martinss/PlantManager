@@ -9,10 +9,11 @@ This project is an APP that reminds people to give water to their lovely plant.
 <img alt="Mockup" src="/readme.assets/home.jpg">
 <img alt="Mockup" src="/readme.assets/choose-plant.jpg">
 <img alt="Mockup" src="/readme.assets/plant.jpg">
+<img alt="Mockup" src="/readme.assets/deletar).jpg">
 
 ## 🚀 Technologies
 
-Technologies that I used to develop this web client
+Technologies that I used to develop this app
 
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -29,7 +30,7 @@ Technologies that I used to develop this web client
 **Clone the project and access the folder**
 
 ```bash
-$ git clone https://github.com/vitor-martinss/PlantManager
+$ git clone https://github.com/vitor-martinss/PlantManager.git
 ```
 
 **Follow the steps below for Web Version**
