@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Alert, Image, StyleSheet, Text, View } from 'react-native'
 
 import { Header } from '../components/Header'
@@ -54,38 +54,40 @@ export function MyPlants() {
 
 	useEffect(() => {
 		async function loadStorageData() {
-			const plantsStoraged = await loadPlant()
+			try {
+				const plantsStoraged = await loadPlant()
 
-			if(!plantsStoraged){
-				return
+				if(!plantsStoraged){
+					return
+				}
+	
+				const nextTime = formatDistance(
+					new Date(plantsStoraged[0].dateTimeNotification).getTime(),
+					new Date().getTime(),
+					{locale: pt}
+				)
+	
+				setNextWatered(
+					`Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime} horas.`
+				)
+
+				setMyPlants(plantsStoraged)
+				setLoading(false)
+
+			} catch (error) {
+				setLoading(false)
+
+				setMyPlants([])
+
+				Alert.alert('Esta faltando algo', 'Você ainda não adicionou uma planta 😅',
+				[{
+					text: 'Ok', onPress:() => handleGoBack()
+				}])
 			}
-
-			const nextTime = formatDistance(
-				new Date(plantsStoraged[0].dateTimeNotification).getTime(),
-				new Date().getTime(),
-				{locale: pt}
-			)
-
-			setNextWatered(
-				`Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime} horas.`
-			)
-
-			setMyPlants(plantsStoraged)
-			setLoading(false)
 		}
 
 		loadStorageData()
-
-		// if(myPlants.length === 0) {				
-		// 	Alert.alert('Esta faltando algo', 'Você ainda não adicionou uma planta 😅',
-		// 		[{
-		// 			text: 'Ok', onPress:() => handleGoBack()
-		// 		}]
-		// 	)
-		// }
-
-	},[])
-
+	}, [])
 
 	if(loading){
 		return <Load /> 
@@ -101,7 +103,7 @@ export function MyPlants() {
 					style={styles.spotLightImage}
 				/>
 				<Text style={styles.spotLightText}>
-					{nextWatered}
+					{myPlants.length===0 ? 'Adicione uma planta e saiba quando será a próxima regada 🌱' : nextWatered}
 				</Text>
 			</View>
 
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		paddingHorizontal: 30,
-		paddingTop: 50,
+		paddingTop: 30,
 		backgroundColor: colors.background
 	},
 

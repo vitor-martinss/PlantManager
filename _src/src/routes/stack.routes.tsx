@@ -8,7 +8,7 @@ import { Confirmation } from '../pages/Confirmation'
 import { PlantSave } from '../pages/PlantSave'
 
 import AuthRoutes from './tab.routes'
-import { PlantSelect } from '../pages/PlantSelect'
+
 
 const stackRoutes = createStackNavigator()
 
