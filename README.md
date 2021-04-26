@@ -7,7 +7,6 @@ This project is an APP that reminds people to give water to their lovely plant.
 ## 💻 Screens
 
 <img alt="Mockup" src="/readme.assets/home.jpg">
-<img alt="Mockup" src="/readme.assets/home-start.jpg">
 <img alt="Mockup" src="/readme.assets/choose-plant.jpg">
 <img alt="Mockup" src="/readme.assets/plant.jpg">
 
@@ -17,7 +16,9 @@ Technologies that I used to develop this web client
 
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-
+- [Expo](https://expo.io/)
+- [Json Server](https://github.com/typicode/json-server)
+- [Lottie](https://airbnb.io/lottie/#/)
 
 ## 💻 Getting started
 
@@ -54,4 +55,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with 💜 by Vitor Martins during NLW #5 👋 [See my linkedin](https://www.linkedin.com/in/vitormartinswebdesigner/)
+Made with 💜 by Vitor Martins during NLW #5 👋 [See my linkedin](https://www.linkedin.com/in/vitor-martinss/)
